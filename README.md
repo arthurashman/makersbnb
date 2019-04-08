@@ -32,3 +32,51 @@ As a user with a listed space, So that others can see its availability, I can of
 As a logged in user, So that I can hire a space, I can request to book a night
 
 As a user with a listed space, So that I can manage my bookings, I can approve booking requests
+
+## Database Setup Instructions
+
+### Creating makersbnb database
+
+We will need to setup two databases.
+
+To create a test database in psql:
+
+`CREATE DATABASE makersbnb_test;`
+
+To create the main database in psql:
+
+`CREATE DATABASE makersbnb;`
+
+1. Connect to psql in terminal `psql postgres`
+2. Enter `CREATE DATABASE makersbnb_test;` command to create a new database called makersbnb_test, do the same command for the makersbnb database.
+
+### Creating spaces table on the makersbnb database
+
+1. Enter `\c makersbnb;` to connect to the database
+2. Create `spaces` table by running the sql script `02_create_spaces_table.sql`
+3. Run in pSQL by doing `\i db/migrations/02_create_spaces_table.sql` from the root directory of the repository
+
+### Creating a test database
+
+1. Enter `psql` to connect to the database server
+2. `CREATE DATABASE "makersbnb_test";` will create a test database
+3. Run the SQL script `\i db/migrations/02_create_spaces_table.sql` to create an empty spaces table in the test database
+4. Ensure you include `ENV['ENVIRONMENT'] = 'test'` in your `spec_helper.rb` file and check that the bookmark class is pointing to the correct database (this should already be setup in our repository)
+
+```ruby
+
+# Set to test environment
+ENV['ENVIRONMENT'] = 'test'
+
+# Configuration of test db
+RSpec.configure do |config|
+  config.before(:each) do
+    setup_test_database
+  end
+end
+
+
+```
+
+
+
