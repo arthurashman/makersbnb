@@ -11,9 +11,24 @@
         null,
         null,
         1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
         null
       ],
-      "/Users/dhireshdattani/Desktop/MAKERS/WEEK6/makersbnb/spec/features/testing_spec.rb": [
+      "/Users/dhireshdattani/Desktop/MAKERS/WEEK6/makersbnb/spec/features/sign_up_spec.rb": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
         1,
         1,
         1,
@@ -22,6 +37,6 @@
         null
       ]
     },
-    "timestamp": 1554739291
+    "timestamp": 1554741518
   }
 }
