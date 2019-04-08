@@ -1,7 +1,8 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/dhireshdattani/Desktop/MAKERS/WEEK6/makersbnb/app.rb": [
+      "/Users/kimdiep/Desktop/makersbnb/app.rb": [
+        1,
         1,
         null,
         null,
@@ -13,7 +14,83 @@
         1,
         null
       ],
-      "/Users/dhireshdattani/Desktop/MAKERS/WEEK6/makersbnb/spec/features/testing_spec.rb": [
+      "/Users/kimdiep/Desktop/makersbnb/database_connection_setup.rb": [
+        1,
+        null,
+        null,
+        null,
+        1,
+        1,
+        null,
+        0,
+        null
+      ],
+      "/Users/kimdiep/Desktop/makersbnb/lib/database_connection.rb": [
+        1,
+        null,
+        1,
+        null,
+        1,
+        4,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        null
+      ],
+      "/Users/kimdiep/Desktop/makersbnb/spec/setup_test_database.rb": [
+        null,
+        null,
+        1,
+        null,
+        1,
+        4,
+        null,
+        4,
+        null,
+        null,
+        4,
+        null
+      ],
+      "/Users/kimdiep/Desktop/makersbnb/spec/database_connection_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        1,
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/Users/kimdiep/Desktop/makersbnb/spec/features/testing_spec.rb": [
         1,
         1,
         1,
@@ -22,6 +99,6 @@
         null
       ]
     },
-    "timestamp": 1554739291
+    "timestamp": 1554741956
   }
 }
