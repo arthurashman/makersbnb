@@ -1,0 +1,27 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/dhireshdattani/Desktop/MAKERS/WEEK6/makersbnb/app.rb": [
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        null
+      ],
+      "/Users/dhireshdattani/Desktop/MAKERS/WEEK6/makersbnb/spec/features/testing_spec.rb": [
+        1,
+        1,
+        1,
+        1,
+        null,
+        null
+      ]
+    },
+    "timestamp": 1554739291
+  }
+}
