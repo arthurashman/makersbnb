@@ -1,20 +1,20 @@
 require 'sinatra/base'
-# require 'sinatra/flash'
+require 'sinatra/flash'
 require './database_connection_setup'
 require './lib/user.rb'
 
 
 class Makersbnb < Sinatra::Base
-  # enable :sessions
-  # register Sinatra::Flash
+  enable :sessions
+  register Sinatra::Flash
 
-  get '/homepage' do
+  get '/' do
     erb :homepage
   end
 
   post '/sign_up' do
     user = User.create(fullname: params[:fullname], email: params[:email], password: params[:password])
-    # session[:email] = user.email
+    session[:email] = user.email
     redirect '/spaces'
   end
 
@@ -28,13 +28,13 @@ class Makersbnb < Sinatra::Base
 
   post '/log_in' do
     user = User.authenticate(email: params[:email], password: params[:password])
-    # if user
-      # session[:email] = user.email
+    if user
+      session[:email] = user.email
       redirect '/spaces'
-    # # else
-    #   flash[:notice] = 'Please check your email or password.'
-    #   redirect '/log_in'
-    # end
+    else
+      flash[:notice] = 'Please check your email or password.'
+      redirect '/log_in'
+    end
   end
 
   run! if app_file == $0
