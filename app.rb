@@ -10,7 +10,7 @@ class Makersbnb < Sinatra::Base
   register Sinatra::Flash
 
   get '/' do
-    erb :index
+    erb :homepage
   end
 
   post '/sign_up' do
