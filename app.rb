@@ -10,7 +10,7 @@ class Makersbnb < Sinatra::Base
   register Sinatra::Flash
 
   get '/' do
-    erb :homepage
+    erb :index
   end
 
   post '/sign_up' do
@@ -22,6 +22,15 @@ class Makersbnb < Sinatra::Base
   get '/spaces' do
     @all_spaces = Space.all
     erb :spaces
+  end
+
+  get '/spaces/new' do
+    erb :'spaces/new'
+  end
+
+  post '/spaces' do
+    Space.create(title: params[:title], description: params[:description], price_per_night: params[:price_per_night], date_from: params[:date_from], date_to: params[:date_to])
+    redirect '/spaces'
   end
 
   get '/log_in' do

@@ -9,5 +9,7 @@ feature 'View Makersbnb listed spaces' do
     
     visit '/spaces'
     expect(page).to have_content 'Beautiful Home'
+    expect(page).to have_content 'Beautiful home in Yorkshire'
+    
   end
 end
