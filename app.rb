@@ -21,6 +21,7 @@ class Makersbnb < Sinatra::Base
 
   get '/spaces' do
     @all_spaces = Space.all
+    @user = User.find(email: session[:email])
     erb :spaces
   end
 
@@ -42,7 +43,7 @@ class Makersbnb < Sinatra::Base
   post '/log_out' do
     session.clear
     flash[:notice] = 'You have signed out.'
-    redirect('/')
+    redirect('/log_in')
   end
 
   run! if app_file == $0

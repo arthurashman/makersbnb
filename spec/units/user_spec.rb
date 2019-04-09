@@ -37,4 +37,19 @@ describe User do
       expect(User.authenticate(email: 'test@example.com', password: 'wrongpassword123')).to be_nil
     end
   end
+
+  describe '.find' do
+    it 'finds a user by email' do
+      user = User.create(fullname: 'Riya Dattani', email: 'test@example.com', password: 'password123')
+      result = User.find(email: user.email)
+
+      expect(result.id).to eq user.id
+      expect(result.email).to eq user.email
+      expect(result.fullname).to eq user.fullname
+    end
+
+    it 'returns nil if there is no email given' do
+      expect(User.find(email: nil)).to eq nil
+    end
+  end
 end

@@ -1,4 +1,6 @@
-Welcome Riya Dattani
+<% if @user %>
+  <h1>Welcome <%= @user.fullname %> </h1>
+<% end %>
 Book a Space
 
 <% @all_spaces.each do |space| %>
