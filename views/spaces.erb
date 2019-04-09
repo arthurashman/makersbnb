@@ -2,10 +2,22 @@
   <h1>Welcome <%= @user.fullname %> </h1>
 <% end %>
 Book a Space
-
+<br>
+<br>
 <% @all_spaces.each do |space| %>
-<%=  space.title %>
+<%= space.title %>
+<br>
+<%= space.description %>
+<br>
+<%= space.price_per_night %>
+<br>
+<br>
 <% end %>
+<br>
+
+<form action="/spaces/new">
+  <button type="submit">List a Space</button>
+</form>
 
 <form action="/log_out" method="post">
   <input type="submit" value="Log out" />

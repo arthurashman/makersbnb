@@ -29,7 +29,24 @@ class Space
   end
 
   def self.create(title:, description:, price_per_night:, date_from:, date_to:)
-    result = DatabaseConnection.query("INSERT INTO spaces (title, description, price_per_night, date_from, date_to) VALUES('#{title}', '#{description}', '#{price_per_night}', '#{date_from}', '#{date_to}') RETURNING id, title, description, price_per_night, date_from, date_to;")
-    Space.new(id: result[0]['id'], title: result[0]['title'], description: result[0]['description'], price_per_night: result[0]['price_per_night'], date_from: result[0]['date_from'], date_to: result[0]['date_to'])
+    result = DatabaseConnection.query(
+    "INSERT INTO spaces (title, description, price_per_night, date_from, date_to) 
+    VALUES(
+      '#{title}', 
+      '#{description}', 
+      '#{price_per_night}', 
+      '#{date_from}', 
+      '#{date_to}'
+      ) 
+    RETURNING id, title, description, price_per_night, date_from, date_to;"
+    )
+    Space.new(
+      id: result[0]['id'], 
+      title: result[0]['title'], 
+      description: result[0]['description'], 
+      price_per_night: result[0]['price_per_night'], 
+      date_from: result[0]['date_from'], 
+      date_to: result[0]['date_to']
+      )
   end
 end
