@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require './lib/space.rb'
 require './database_connection_setup'
 
 
@@ -12,6 +13,7 @@ class Makersbnb < Sinatra::Base
   end
 
   get '/spaces' do
+    @all_spaces = Space.all
     erb :spaces
   end
 
