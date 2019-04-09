@@ -4,3 +4,7 @@ Book a Space
 <% @all_spaces.each do |space| %>
 <%=  space.title %>
 <% end %>
+
+<form action="/log_out" method="post">
+  <input type="submit" value="Log out" />
+</form>
