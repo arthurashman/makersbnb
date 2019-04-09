@@ -56,6 +56,12 @@ To create the main database in psql:
 2. Create `spaces` table by running the sql script `02_create_spaces_table.sql`
 3. Run in pSQL by doing `\i db/migrations/02_create_spaces_table.sql` from the root directory of the repository
 
+### Creating users table on the makersbnb database
+
+1. Enter `\c makersbnb;` to connect to the database
+2. Create `users` table by running the sql script `03_create_users_table.sql`
+3. Run in pSQL by doing `\i db/migrations/03_create_users_table.sql` from the root directory of the repository
+
 ### Creating a test database
 
 1. Enter `psql` to connect to the database server
@@ -77,6 +83,3 @@ end
 
 
 ```
-
-
-

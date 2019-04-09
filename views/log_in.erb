@@ -1,0 +1,8 @@
+<h2><%= flash[:notice] %></h2>
+<h2> Log in to MakersBnB </h2>
+
+<form action='/log_in' method='post'>
+  <input type="email" name="email" placeholder="Email" /> <br>
+  <input type="password" name="password" placeholder="Password" /> <br>
+  <input type="submit" value="Log in" />
+</form>
