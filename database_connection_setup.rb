@@ -1,4 +1,4 @@
-require './lib/database_connection'
+require './lib/database_connection.rb'
 
 #The db connection is set up with this script when the application boots (app.rb)
 
