@@ -1,16 +1,16 @@
 require 'bcrypt'
 #
 class User
-  attr_reader :id, :fullname
+  attr_reader :id, :email
 
-  def initialize(id:, fullname:)
+  def initialize(id:, email:)
     @id = id
-    @fullname = fullname
+    @email = email
   end
 #
   def self.create(fullname:, email:, password:)
     encrypted_password = BCrypt::Password.create(password)
-    result = DatabaseConnection.query("INSERT INTO users (fullname, email, password) VALUES('#{fullname}', '#{email}', '#{encrypted_password}') RETURNING id, fullname;")
-    User.new(id: result[0]['id'], fullname: result[0]['fullname'])
+    result = DatabaseConnection.query("INSERT INTO users (fullname, email, password) VALUES('#{fullname}', '#{email}', '#{encrypted_password}') RETURNING id, email;")
+    User.new(id: result[0]['id'], email: result[0]['email'])
   end
 end
