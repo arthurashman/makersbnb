@@ -6,6 +6,7 @@ gem 'bcrypt'
 gem 'launchy'
 gem 'pg'
 gem 'rake'
+gem 'rerun'
 gem 'sinatra'
 
 group :test do
@@ -14,4 +15,5 @@ group :test do
   gem 'rubocop', '0.66.0'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
+  gem 'pry'
 end
