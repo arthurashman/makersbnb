@@ -32,4 +32,16 @@ feature 'user log in' do
     expect(page).not_to have_content 'Welcome Riya Dattani'
     expect(page).to have_content 'Please check your email or password.'
   end
+
+  scenario 'a user can sign out' do
+    User.create(fullname: 'Riya Dattani', email: 'test@example.com', password: 'password123')
+
+    visit '/log_in'
+    fill_in(:email, with: 'test@example.com')
+    fill_in(:password, with: 'password123')
+    click_button('Log in')
+    click_button('Log out')
+
+    expect(page).to have_content 'You have signed out.'
+  end
 end

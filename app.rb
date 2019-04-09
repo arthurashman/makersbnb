@@ -14,13 +14,19 @@ class Makersbnb < Sinatra::Base
   end
 
   post '/sign_up' do
-    user = User.create(fullname: params[:fullname], email: params[:email], password: params[:password])
-    session[:email] = user.email
-    redirect '/spaces'
+    if User.find(email: params[:email])
+      flash[:notice] = 'You have an account, please log in.'
+      redirect('/log_in')
+    else
+      user = User.create(fullname: params[:fullname], email: params[:email], password: params[:password])
+      session[:email] = user.email
+      redirect '/spaces'
+    end
   end
 
   get '/spaces' do
     @all_spaces = Space.all
+    @user = User.find(email: session[:email])
     erb :spaces
   end
 
@@ -37,6 +43,12 @@ class Makersbnb < Sinatra::Base
       flash[:notice] = 'Please check your email or password.'
       redirect '/log_in'
     end
+  end
+
+  post '/log_out' do
+    session.clear
+    flash[:notice] = 'You have signed out.'
+    redirect('/log_in')
   end
 
   run! if app_file == $0
