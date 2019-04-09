@@ -2,27 +2,40 @@
 
 https://github.com/makersacademy/course/blob/master/makersbnb/specification_and_mockups.md
 
-Branching Instructions
+## Branching Instructions
 We decided to use branching to manage the development workflow and keep the 'master' branch clean. The 'master' branch is treated as the code ready to be shipped out to the end-client, because of this, any new features or code development should not be conducted directly from the 'master' branch, but feature branches are created to manage the features.
 
 Scenario: Say if we wanted to work on a new feature, a new feature branch is created.
 
 Create a new branch: git checkout -b [name_of_your_new_branch]
-e.g. git checkout -b login-functionality
+e.g. `git checkout -b login-functionality`
 
 When you want to write code for the login-functionality, you will first need to checkout onto that branch (ensure you are on the correct feature branch while coding.
-git checkout login-functionality
 
-Any new code will then have to be pushed onto the feature branch (and not directly into master).
-git push origin login-functionality
+`git checkout login-functionality`
+
+Any new code will then have to be pushed onto the feature branch (and not directly into master) - make sure you're on the feature branch to push it to that feature branch.
+
+`git push origin login-functionality`
+
+## Approval for branch to be merged into master
+
+Now this feature branch will be viewable in github.
+
+Login to github and select the branch from the dropdown.
 
 Once you are happy, you are ready to submit a pull request. This will enable others to review and give a thumbs up for the branch to be merged into master.
 
-Once approved, the feature branch (containing the code for the new feature) will be merged into master and available.
+Once approved, the feature branch (containing the code for the new feature) will be merged into master and available for others.
 
-Others in the team can then do git pull to get all the new changes
+Others in the team can then do git pull to get all the new changes.
 
-User Stories
+**IMPORTANT - if you are working on another feature branch, do a `git push --set-upstream origin [feature-branch]` onto that feature branch first and then, do `git checkout master` and then a `git pull` in master to see changes from a latest branch merge.
+
+-----
+
+## User Stories
+
 As a user, So that I can access the service, I can sign up
 
 As a logged in user, So that I can offer my properties for rent I can list new spaces
