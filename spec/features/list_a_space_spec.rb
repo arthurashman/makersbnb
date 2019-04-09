@@ -6,7 +6,7 @@ feature 'List a space' do
     expect(page).to have_content('Form to add space')
   end
 
-  scenario 'User lists the page' do
+  scenario 'User lists the space' do
     visit('/spaces')
     click_button('List a Space')
     fill_in(:title, with: 'Yoda House')
