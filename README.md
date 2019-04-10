@@ -92,7 +92,7 @@ Please do the following to add on a column for user_id (owner of the space) on t
 
 1. Enter `psql` to connect to the database server
 2. Connect to `makersbnb_test` database
-3. Run the SQL script `\i /db/migrations/04_alter_spaces_table.sql;`
+3. Run the SQL script `\i ./db/migrations/04_alter_spaces_table.sql;`
 4. Repeat steps for `makersbnb` database
 
 

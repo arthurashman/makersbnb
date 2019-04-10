@@ -28,7 +28,7 @@ describe Space do
 
   describe '#find' do
     it 'finds a space by id' do
-      space = Space.create(title: "Beautiful Home", description: "Beautiful home in Yorkshire", price_per_night: 50, date_from: "2019-05-01", date_to: "2019-05-31")
+      space = Space.create(user_id: 1, title: "Beautiful Home", description: "Beautiful home in Yorkshire", price_per_night: 50, date_from: "2019-05-01", date_to: "2019-05-31")
       result = Space.find(id: space.id)
 
       expect(result.id).to eq space.id
