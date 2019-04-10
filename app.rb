@@ -46,7 +46,11 @@ class Makersbnb < Sinatra::Base
   end
 
   post '/request' do
-    'Request sent!'
+    redirect '/requests'
+  end
+
+  get '/requests' do
+    erb :requests
   end
 
   get '/log_in' do
