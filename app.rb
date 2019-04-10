@@ -40,6 +40,15 @@ class Makersbnb < Sinatra::Base
     redirect '/spaces'
   end
 
+  get '/spaces/:id' do
+    @space = Space.find(id: params[:id])
+    erb :dates
+  end
+
+  post '/request' do
+    'Request sent!'
+  end
+
   get '/log_in' do
     erb :log_in
   end

@@ -1,0 +1,7 @@
+Choose a date
+<br>
+<br>
+<form action="/request" method="POST" >
+  Date:<input type="date" name="availabile_dates" placeholder="YYYY-MM-DD" min="<%=@space.date_from%>" max="<%=@space.date_to%>" />
+  <input type="submit" value="Request"/>
+</form>

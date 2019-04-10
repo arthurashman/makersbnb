@@ -53,4 +53,16 @@ class Space
       date_to: result[0]['date_to']
       )
   end
+
+  def self.find(id:)
+    result = DatabaseConnection.query("SELECT * FROM spaces WHERE id = '#{id.to_i}'")
+    Space.new(
+      id: result[0]['id'], 
+      title: result[0]['title'], 
+      description: result[0]['description'], 
+      price_per_night: result[0]['price_per_night'], 
+      date_from: result[0]['date_from'], 
+      date_to: result[0]['date_to']
+      )
+  end
 end

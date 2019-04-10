@@ -25,4 +25,13 @@ describe Space do
       expect(space.title).to eq "Beautiful Home"
     end 
   end
+
+  describe '#find' do
+    it 'finds a space by id' do
+      space = Space.create(title: "Beautiful Home", description: "Beautiful home in Yorkshire", price_per_night: 50, date_from: "2019-05-01", date_to: "2019-05-31")
+      result = Space.find(id: space.id)
+
+      expect(result.id).to eq space.id
+    end
+  end
 end

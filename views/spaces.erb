@@ -9,7 +9,10 @@ Book a Space
 <br>
 <%= space.description %>
 <br>
-<%= space.price_per_night %>
+<%= space.price_per_night %> 
+<form action="/spaces/<%= space.id %>">
+  <button type="submit">See more</button>
+</form>
 <br>
 <br>
 <% end %>
