@@ -2,7 +2,7 @@ require 'pg'
 require 'database_connection'
 
 feature 'View Makersbnb listed spaces' do
-  scenario 'user can see listed spaces' do
+  scenario 'logged in user can see listed spaces' do
 
     PG.connect(dbname: 'makersbnb_test')
     Space.create(user_id: 1 ,title: "Beautiful Home", description: "Beautiful home in Yorkshire", price_per_night: 50, date_from: "2019-05-01", date_to: "2019-05-31")
@@ -12,4 +12,5 @@ feature 'View Makersbnb listed spaces' do
     expect(page).to have_content 'Beautiful home in Yorkshire'
     
   end
+
 end

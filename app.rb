@@ -46,7 +46,13 @@ class Makersbnb < Sinatra::Base
   end
 
   post '/request' do
-    'Request sent!'
+    @email = session[:email]
+    if @email == nil
+      flash[:notice] = 'You must be signed in to request a space.'
+      redirect "/spaces/#{params[:id]}"
+    else
+      'Request sent!'
+    end
   end
 
   get '/log_in' do

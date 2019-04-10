@@ -1,7 +1,18 @@
+<h2><%= flash[:notice] %></h2>
+
+<% if @email == nil %>
+  <form action="/log_in">
+    <button type="submit">Log in</button>
+  </form>
+<% end %>
+
 Choose a date
 <br>
 <br>
 <form action="/request" method="POST" >
   Date:<input type="date" name="availabile_dates" placeholder="YYYY-MM-DD" min="<%=@space.date_from%>" max="<%=@space.date_to%>" />
   <input type="submit" value="Request"/>
+  <input type="hidden" name="id" value="<%= @space.id%>">
 </form>
+
+

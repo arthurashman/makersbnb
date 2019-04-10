@@ -11,4 +11,10 @@ feature 'Login Button on Homepage' do
     expect(page).to have_current_path("/log_in")
   end
 
+  scenario 'user clicks browse spaces button on homepage and they are redirected to spaces' do 
+    visit '/'
+    click_button 'Browse spaces'
+    expect(page).to have_current_path("/spaces")
+  end
+
 end

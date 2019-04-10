@@ -1,6 +1,13 @@
 <% if @user %>
   <h1>Welcome <%= @user.fullname %> </h1>
+    <form action="/spaces/new">
+      <button type="submit">List a Space</button>
+    </form>
+    <form action="/log_out" method="post">
+      <input type="submit" value="Log out" />
+    </form>
 <% end %>
+
 Book a Space
 <br>
 <br>
@@ -17,11 +24,3 @@ Book a Space
 <br>
 <% end %>
 <br>
-
-<form action="/spaces/new">
-  <button type="submit">List a Space</button>
-</form>
-
-<form action="/log_out" method="post">
-  <input type="submit" value="Log out" />
-</form>
