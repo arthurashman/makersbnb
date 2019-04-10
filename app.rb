@@ -20,6 +20,7 @@ class Makersbnb < Sinatra::Base
     else
       user = User.create(fullname: params[:fullname], email: params[:email], password: params[:password])
       session[:email] = user.email
+      session[:id] = user.id
       redirect '/spaces'
     end
   end
@@ -35,7 +36,7 @@ class Makersbnb < Sinatra::Base
   end
 
   post '/spaces' do
-    Space.create(title: params[:title], description: params[:description], price_per_night: params[:price_per_night], date_from: params[:date_from], date_to: params[:date_to])
+    Space.create(user_id: session[:id], title: params[:title], description: params[:description], price_per_night: params[:price_per_night], date_from: params[:date_from], date_to: params[:date_to])
     redirect '/spaces'
   end
 
@@ -47,6 +48,7 @@ class Makersbnb < Sinatra::Base
     user = User.authenticate(email: params[:email], password: params[:password])
     if user
       session[:email] = user.email
+      session[:id] = user.id
       redirect '/spaces'
     else
       flash[:notice] = 'Please check your email or password.'

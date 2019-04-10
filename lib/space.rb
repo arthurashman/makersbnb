@@ -3,9 +3,10 @@ require './lib/database_connection.rb'
 
 class Space
 
-  attr_reader :id, :title, :description, :price_per_night, :date_from, :date_to
+  attr_reader :user_id, :id, :title, :description, :price_per_night, :date_from, :date_to
 
-  def initialize(id:, title:, description:, price_per_night:, date_from:, date_to:)
+  def initialize(user_id:, id:, title:, description:, price_per_night:, date_from:, date_to:)
+    @user_id = user_id
     @id = id
     @title = title
     @description = description
@@ -18,6 +19,7 @@ class Space
     result = DatabaseConnection.query("SELECT * FROM spaces")
     result.map do |space|
       Space.new(
+        user_id: space['user_id'],
         id: space['id'],
         title: space['title'],
         description: space['description'],
@@ -28,19 +30,21 @@ class Space
     end
   end
 
-  def self.create(title:, description:, price_per_night:, date_from:, date_to:)
+  def self.create(user_id:, title:, description:, price_per_night:, date_from:, date_to:)
     result = DatabaseConnection.query(
-    "INSERT INTO spaces (title, description, price_per_night, date_from, date_to) 
+    "INSERT INTO spaces (user_id, title, description, price_per_night, date_from, date_to) 
     VALUES(
+      '#{user_id.to_i}',
       '#{title}', 
       '#{description}', 
       '#{price_per_night}', 
       '#{date_from}', 
       '#{date_to}'
       ) 
-    RETURNING id, title, description, price_per_night, date_from, date_to;"
+    RETURNING user_id, id, title, description, price_per_night, date_from, date_to;"
     )
     Space.new(
+      user_id: result[0]['user_id'],
       id: result[0]['id'], 
       title: result[0]['title'], 
       description: result[0]['description'], 
