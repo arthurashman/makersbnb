@@ -35,8 +35,17 @@ class Makersbnb < Sinatra::Base
   end
 
   post '/spaces' do
-    Space.create(title: params[:title], description: params[:description], price_per_night: params[:price_per_night], date_from: params[:date_from], date_to: params[:date_to])
+    space = Space.create(title: params[:title], description: params[:description], price_per_night: params[:price_per_night], date_from: params[:date_from], date_to: params[:date_to])
     redirect '/spaces'
+  end
+
+  get '/spaces/:id' do
+    @space = Space.find(id: params[:id])
+    erb :dates
+  end
+
+  post '/request' do
+    'Request sent!'
   end
 
   get '/log_in' do
