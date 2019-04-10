@@ -14,7 +14,5 @@ group :test do
   gem 'capybara'
   gem 'rspec'
   gem 'rubocop', '0.66.0'
-  gem 'simplecov', require: false
-  gem 'simplecov-console', require: false
   gem 'pry'
 end
