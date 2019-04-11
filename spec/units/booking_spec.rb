@@ -31,7 +31,7 @@ describe Booking do
 
   describe '.find' do
     it 'finds a booking by space id' do
-      booking= Booking.request(space_id: 1, date:'2019-05-20', confirmation: "false")
+      booking = Booking.request(requester_id: 1, space_id: 1, date:'2019-05-20', confirmation: "true")
       result = Booking.find(space_id: booking.space_id)
 
       expect(result.id).to eq booking.id
@@ -46,7 +46,7 @@ describe Booking do
 
   describe '.all' do
     it 'returns all requests made by the user' do
-      Booking.request(space_id: 1, date:'2019-05-20', confirmation: "false")
+      Booking.request(requester_id: 1, space_id: 1, date:'2019-05-20', confirmation: "true")
 
       bookings = Booking.all
 
