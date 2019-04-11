@@ -29,5 +29,28 @@ describe Booking do
     end
   end
 
+  describe '.find' do
+    it 'finds a booking by space id' do
+      booking= Booking.request(space_id: 1, date:'2019-05-20', confirmation: "false")
+      result = Booking.find(space_id: booking.space_id)
 
+      expect(result.id).to eq booking.id
+      expect(result.date).to eq booking.date
+      expect(result.confirmation).to eq booking.confirmation
+    end
+
+    it 'returns nil if there is no space_id given' do
+      expect(Booking.find(space_id: nil)).to eq nil
+    end
+  end
+
+  describe '.all' do
+    it 'returns all requests made by the user' do
+      Booking.request(space_id: 1, date:'2019-05-20', confirmation: "false")
+
+      bookings = Booking.all
+
+      expect(bookings.first.date).to eq '2019-05-20'
+    end
+  end
 end
