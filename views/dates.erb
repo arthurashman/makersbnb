@@ -10,7 +10,8 @@ Choose a date
 <br>
 <br>
 <form action="/request" method="POST" >
-  Date:<input type="date" name="availabile_dates" placeholder="YYYY-MM-DD" min="<%=@space.date_from%>" max="<%=@space.date_to%>" />
+  Date:<input type="date" name="chosen_date" placeholder="YYYY-MM-DD" min="<%=@space.date_from%>" max="<%=@space.date_to%>" />
+  <input type="hidden" name="space_id" value=<%= @space.id %> />
   <input type="submit" value="Request"/>
   <input type="hidden" name="id" value="<%= @space.id%>">
 </form>
