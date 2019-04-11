@@ -1,13 +1,21 @@
 feature 'List a space' do
 
   scenario 'User navigates to listing page' do
-    visit('/spaces')
+    User.create(fullname: 'Riya Dattani', email: 'test@example.com', password: 'password123')
+    visit('/log_in')
+    fill_in('email', with: 'test@example.com')
+    fill_in('password', with: 'password123')
+    click_button 'Log in'
     click_button('List a Space')
     expect(page).to have_content('Form to add space')
   end
 
   scenario 'User lists the space' do
-    visit('/spaces')
+    User.create(fullname: 'Riya Dattani', email: 'test@example.com', password: 'password123')
+    visit('/log_in')
+    fill_in('email', with: 'test@example.com')
+    fill_in('password', with: 'password123')
+    click_button 'Log in'
     click_button('List a Space')
     fill_in(:title, with: 'Yoda House')
     fill_in(:description, with: 'Lovely cottage in Cornwall')

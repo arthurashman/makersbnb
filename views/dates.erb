@@ -1,5 +1,11 @@
 <h2><%= flash[:notice] %></h2>
 
+<% if @email == nil %>
+  <form action="/log_in">
+    <button type="submit">Log in</button>
+  </form>
+<% end %>
+
 Choose a date
 <br>
 <br>
@@ -7,4 +13,12 @@ Choose a date
   Date:<input type="date" name="chosen_date" placeholder="YYYY-MM-DD" min="<%=@space.date_from%>" max="<%=@space.date_to%>" />
   <input type="hidden" name="space_id" value=<%= @space.id %> />
   <input type="submit" value="Request"/>
+  <input type="hidden" name="id" value="<%= @space.id%>">
 </form>
+
+
+<form action="/spaces">
+  <button type="submit">Go back to browse spaces</button>
+</form>
+
+

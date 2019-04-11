@@ -1,6 +1,6 @@
 feature 'Login Button on Homepage' do
 
-  scenario 'user goes to homepage and sees login button of they have an account already' do
+  scenario 'user goes to homepage and sees login button if they have an account already' do
     visit '/'
     expect(page).to have_content 'Log in'
   end
@@ -9,6 +9,12 @@ feature 'Login Button on Homepage' do
     visit '/'
     click_button 'Log in'
     expect(page).to have_current_path("/log_in")
+  end
+
+  scenario 'user clicks browse spaces button on homepage and they are redirected to view spaces' do 
+    visit '/'
+    click_button 'Browse spaces'
+    expect(page).to have_current_path("/spaces")
   end
 
 end

@@ -27,7 +27,8 @@ class Makersbnb < Sinatra::Base
 
   get '/spaces' do
     @all_spaces = Space.all
-    @user = User.find(email: session[:email])
+    @email = session[:email]
+    @user = User.find(email: @email)
     erb :spaces
   end
 
@@ -41,17 +42,20 @@ class Makersbnb < Sinatra::Base
   end
 
   get '/spaces/:id' do
+    @email = session[:email]
     @space = Space.find(id: params[:id])
     erb :dates
   end
 
   post '/request' do
-    @booking = Booking.request(space_id: params[:space_id], date: params[:chosen_date])
-    if @booking.available?(space_id: params[:space_id], date: params[:chosen_date])
-      redirect '/requests'
-    # else
-    #   flash[:notice] = 'Sorry this space is booked.'
-    #   redirect '/spaces/:id'
+    if session[:email] == nil
+      flash[:notice] = 'You must be signed in to request a space.'
+      redirect "/spaces/#{params[:id]}"
+    else
+      @booking = Booking.request(space_id: params[:space_id], date: params[:chosen_date])
+      if @booking.available?(space_id: params[:space_id], date: params[:chosen_date])
+        redirect '/requests'
+      end
     end
   end
 
