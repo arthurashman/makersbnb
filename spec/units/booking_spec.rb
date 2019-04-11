@@ -37,8 +37,8 @@ describe Booking do
       expect(result.confirmation).to eq booking.confirmation
     end
 
-    # it 'returns nil if there is no email given' do
-    #   expect(User.find(email: nil)).to eq nil
-    # end
+    it 'returns nil if there is no space_id given' do
+      expect(Booking.find(space_id: nil)).to eq nil
+    end
   end
 end
