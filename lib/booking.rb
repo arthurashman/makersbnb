@@ -2,18 +2,18 @@ require 'pg'
 require './lib/database_connection.rb'
 
 class Booking
-  attr_reader :id, :space_id, :date, :confirmation
+  attr_reader :requester_id, :id, :space_id, :date, :confirmation
 
-  def initialize(id:, space_id:, date:, confirmation:)
+  def initialize(requester_id:, id:, space_id:, date:, confirmation:)
     @id = id
     @space_id = space_id
     @date = date
     @confirmation = confirmation
   end
 
-  def self.request(space_id:, date:, confirmation: "false")
-    result = DatabaseConnection.query("INSERT INTO bookings (space_id, date, confirmation) VALUES('#{space_id}', '#{date}', '#{confirmation}') RETURNING id, space_id, date, confirmation;")
-    Booking.new(id: result[0]['id'], space_id: result[0]['space_id'], date: result[0]['date'], confirmation: result[0]['confirmation'])
+  def self.request(requester_id:, space_id:, date:, confirmation: "false")
+    result = DatabaseConnection.query("INSERT INTO bookings (requester_id, space_id, date, confirmation) VALUES('#{requester_id}','#{space_id}', '#{date}', '#{confirmation}') RETURNING requester_id, id, space_id, date, confirmation;")
+    Booking.new(requester_id: result[0]['requester_id'], id: result[0]['id'], space_id: result[0]['space_id'], date: result[0]['date'], confirmation: result[0]['confirmation'])
   end
 
   def available?(space_id:, date:)
@@ -21,4 +21,5 @@ class Booking
     (result[0]['confirmation'] == "false") ? true : false
       #insert into request table
   end
+
 end

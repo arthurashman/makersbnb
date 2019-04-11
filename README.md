@@ -101,3 +101,14 @@ Please do the following to add on a column for user_id (owner of the space) on t
 2. Connect to `makersbnb_test` database
 3. Run the SQL script `\i ./db/migrations/04_alter_spaces_table.sql;`
 4. Repeat steps for `makersbnb` database
+
+### Associating User(Requester) to Bookings
+
+When a user requests to book a space, the app will use the user_id of that user session to associate the requester to the booking.
+
+Please do the following to add on a column for requester_id on the bookings table.
+
+1. Enter `psql` to connect to the database server
+2. Connect to `makersbnb_test` database
+3. Run the SQL script `\i db/migrations/06_alter_bookings_table.sql;`
+4. Repeat steps for `makersbnb` database
