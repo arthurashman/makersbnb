@@ -7,13 +7,13 @@ feature 'Login Button on Homepage' do
 
   scenario 'user clicks login button on homepage and they are redirected to log in' do
     visit '/'
-    click_button 'Log in'
+    click_link 'Log in'
     expect(page).to have_current_path("/log_in")
   end
 
   scenario 'user clicks browse spaces button on homepage and they are redirected to view spaces' do 
     visit '/'
-    click_button 'Browse spaces'
+    click_link 'Browse spaces'
     expect(page).to have_current_path("/spaces")
   end
 

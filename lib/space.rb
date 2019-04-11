@@ -66,4 +66,22 @@ class Space
       date_to: result[0]['date_to']
       )
   end
+
+  def self.list_bookings(requester_id:)
+    result = DatabaseConnection.query("SELECT title, description, price_per_night, requester_id, date FROM bookings JOIN spaces ON bookings.space_id = spaces.id WHERE requester_id = '#{requester_id}'")
+
+    result.map do |space|
+      Space.new(
+        user_id: space['user_id'],
+        id: space['id'],
+        title: space['title'],
+        description: space['description'],
+        price_per_night: space['price_per_night'],
+        date_from: space['date_from'],
+        date_to: space['date_to']
+      )
+    end
+    
+  end
+
 end

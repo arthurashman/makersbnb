@@ -5,6 +5,7 @@ class Booking
   attr_reader :requester_id, :id, :space_id, :date, :confirmation
 
   def initialize(requester_id:, id:, space_id:, date:, confirmation:)
+    @requester_id = requester_id
     @id = id
     @space_id = space_id
     @date = date
@@ -34,4 +35,5 @@ class Booking
       Booking.new(requester_id: result[0]['requester_id'], id: result[0]['id'], space_id: result[0]['space_id'], date: result[0]['date'], confirmation: result[0]['confirmation'])
     end
   end
+  
 end
