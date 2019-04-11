@@ -3,7 +3,7 @@ require 'sinatra/flash'
 require './database_connection_setup'
 require './lib/space.rb'
 require './lib/user.rb'
-
+require './lib/booking.rb'
 
 class Makersbnb < Sinatra::Base
   enable :sessions
@@ -46,7 +46,17 @@ class Makersbnb < Sinatra::Base
   end
 
   post '/request' do
-    'Request sent!'
+    @booking = Booking.request(space_id: params[:space_id], date: params[:chosen_date])
+    if @booking.available?(space_id: params[:space_id], date: params[:chosen_date])
+      redirect '/requests'
+    # else
+    #   flash[:notice] = 'Sorry this space is booked.'
+    #   redirect '/spaces/:id'
+    end
+  end
+
+  get '/requests' do
+    erb :requests
   end
 
   get '/log_in' do

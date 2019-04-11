@@ -62,6 +62,13 @@ To create the main database in psql:
 2. Create `users` table by running the sql script `03_create_users_table.sql`
 3. Run in pSQL by doing `\i db/migrations/03_create_users_table.sql` from the root directory of the repository
 
+### Creating bookings table on the makersbnb database
+
+1. Enter `\c makersbnb;` to connect to the database
+2. Create `bookings` table by running the sql script `05_create_bookings_table.sql`
+3. Run in pSQL by doing `\i db/migrations/05_create_bookings_table.sql` from the root directory of the repository
+
+
 ### Creating a test database
 
 1. Enter `psql` to connect to the database server
@@ -86,7 +93,7 @@ end
 
 ### Associating User to Spaces
 
-When a user adds a space, upon space creation, the app will use the user_id of that user session to associate the user_id to the space_id. 
+When a user adds a space, upon space creation, the app will use the user_id of that user session to associate the user_id to the space_id.
 
 Please do the following to add on a column for user_id (owner of the space) on the spaces table.
 
@@ -94,5 +101,3 @@ Please do the following to add on a column for user_id (owner of the space) on t
 2. Connect to `makersbnb_test` database
 3. Run the SQL script `\i ./db/migrations/04_alter_spaces_table.sql;`
 4. Repeat steps for `makersbnb` database
-
-
