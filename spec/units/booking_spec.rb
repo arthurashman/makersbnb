@@ -26,4 +26,19 @@ describe Booking do
       expect(booking.available?(space_id: booking.space_id, date:'2019-05-20')).to be false
     end
   end
+
+  describe '.find' do
+    it 'finds a booking by space id' do
+      booking= Booking.request(space_id: 1, date:'2019-05-20', confirmation: "false")
+      result = Booking.find(space_id: booking.space_id)
+
+      expect(result.id).to eq booking.id
+      expect(result.date).to eq booking.date
+      expect(result.confirmation).to eq booking.confirmation
+    end
+
+    # it 'returns nil if there is no email given' do
+    #   expect(User.find(email: nil)).to eq nil
+    # end
+  end
 end

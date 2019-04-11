@@ -54,12 +54,15 @@ class Makersbnb < Sinatra::Base
     else
       @booking = Booking.request(space_id: params[:space_id], date: params[:chosen_date])
       if @booking.available?(space_id: params[:space_id], date: params[:chosen_date])
-        redirect '/requests'
+        redirect "/requests/#{params[:space_id]}"
       end
     end
   end
 
-  get '/requests' do
+  get '/requests/:id' do
+    p params
+    @space = Space.find(id: params[:id])
+    # @booking = Booking.find(space_id: params[:id])
     erb :requests
   end
 

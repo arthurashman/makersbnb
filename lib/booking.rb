@@ -21,4 +21,9 @@ class Booking
     (result[0]['confirmation'] == "false") ? true : false
       #insert into request table
   end
+
+  def self.find(space_id:)
+    result = DatabaseConnection.query("SELECT * FROM bookings WHERE space_id = '#{space_id.to_i}';")
+    Booking.new(id: result[0]['id'], space_id: result[0]['space_id'], date: result[0]['date'], confirmation: result[0]['confirmation'])
+  end
 end
