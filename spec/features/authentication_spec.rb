@@ -42,6 +42,6 @@ feature 'user log in' do
     click_button('Log in')
     click_button('Log out')
 
-    expect(page).to have_content 'You have signed out.'
+    expect(page).to have_current_path("/")
   end
 end

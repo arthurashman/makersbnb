@@ -6,7 +6,7 @@ feature 'List a space' do
     fill_in('email', with: 'test@example.com')
     fill_in('password', with: 'password123')
     click_button 'Log in'
-    click_button('List a Space')
+    click_button('List your own space')
     expect(page).to have_content('Form to add space')
   end
 
@@ -16,7 +16,7 @@ feature 'List a space' do
     fill_in('email', with: 'test@example.com')
     fill_in('password', with: 'password123')
     click_button 'Log in'
-    click_button('List a Space')
+    click_button('List your own space')
     fill_in(:title, with: 'Yoda House')
     fill_in(:description, with: 'Lovely cottage in Cornwall')
     fill_in(:price_per_night, with: 60)
@@ -24,7 +24,7 @@ feature 'List a space' do
     fill_in(:date_to, with: '2019-06-20')
     click_button('List')
 
-    expect(page).to have_content('Yoda House')
+    expect(page).to have_text('Yoda House')
     
   end
 
