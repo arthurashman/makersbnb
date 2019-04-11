@@ -4,6 +4,8 @@ require './database_connection_setup'
 require './lib/space.rb'
 require './lib/user.rb'
 require './lib/booking.rb'
+require './lib/request.rb'
+
 
 class Makersbnb < Sinatra::Base
   enable :sessions
@@ -38,6 +40,7 @@ class Makersbnb < Sinatra::Base
 
   post '/spaces' do
     Space.create(user_id: session[:id], title: params[:title], description: params[:description], price_per_night: params[:price_per_night], date_from: params[:date_from], date_to: params[:date_to])
+    p session[:id]
     redirect '/spaces'
   end
 
@@ -54,13 +57,13 @@ class Makersbnb < Sinatra::Base
     else
       @booking = Booking.request(requester_id: session[:id], space_id: params[:space_id], date: params[:chosen_date])
       if @booking.available?(space_id: params[:space_id], date: params[:chosen_date])
-        redirect '/requests'
+        redirect "/requests"
       end
     end
   end
 
   get '/requests' do
-    @booking_list = Space.list_bookings(requester_id: session[:id])
+    @requests_made = Request.made(requester_id: session[:id])
     erb :requests
   end
 

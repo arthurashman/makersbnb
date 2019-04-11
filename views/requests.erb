@@ -1,12 +1,13 @@
 <h3> Requests made: </h3>
 
 <div>
-  <% @booking_list.each do |booking| %>
+  <% @requests_made.each do |booking| %>
   <br>
-  Your booking for <%= booking.title %>:
-  <%= booking.description %>
-
+  Your booking for <%= booking.date %>:<br>
+  <%= booking.title %><br>
+  <%= booking.description %><br>
+  £<%= booking.price_per_night%> per night<br>
 <% end %>
-
+<br>
+<br>
 </div>
-

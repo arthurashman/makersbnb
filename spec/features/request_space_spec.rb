@@ -11,7 +11,7 @@ feature 'User books a space' do
     click_button('Request')
 
     expect(page).to have_content('Beautiful home')
-    # expect(page).to have_content('2019-05-20')
+    expect(page).to have_content('2019-05-20')
   end
 
   # scenario 'User requests for a space and it is unavailable' do
