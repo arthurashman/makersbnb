@@ -1,0 +1,57 @@
+body.homepage { background-image:url('the_city_london.jpg');
+    background-size: cover;
+    background-color: #cccccc;
+}
+
+body.log {background-image:url('best-city-skylines-hong-kong.jpg');
+    background-size: cover;
+    background-color: #cccccc;
+}
+
+
+
+.oxed {
+    text-align: center;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    width: 350px;
+    background-color:#ffffff;
+    display: block;
+    margin: 0 auto;
+    border-radius: 10px;
+ }
+
+ .boxed {
+    text-align: center;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    width: 600px;
+    background-color:#ffffff;
+    display: block;
+    margin: 0 auto;
+    border-radius: 10px;
+ }
+
+#content {
+  position: relative;
+}
+
+#content img {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 10%;
+}
+
+#buttons {
+    line-height: 12px;
+    width: 18px;
+    font-size: 8pt;
+    font-family: tahoma;
+    margin-top: 0px;
+    margin-right: 0px;
+    position:absolute;
+    top:0;
+    right:0;
+    width: 10%;
+}
