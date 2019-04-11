@@ -112,3 +112,8 @@ Please do the following to add on a column for requester_id on the bookings tabl
 2. Connect to `makersbnb_test` database
 3. Run the SQL script `\i db/migrations/06_alter_bookings_table.sql;`
 4. Repeat steps for `makersbnb` database
+
+
+### Amending bookings table with FK
+
+1. Run the SQL script `\i db/migrations/07_add_space_FK_to_bookings;`

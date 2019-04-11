@@ -1,2 +1,1 @@
-ALTER TABLE bookings
-ADD COLUMN requester_id int;
+ALTER TABLE bookings ADD COLUMN requester_id INTEGER REFERENCES users(id);
