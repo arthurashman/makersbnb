@@ -1,3 +1,6 @@
+require 'pg'
+require './lib/database_connection.rb'
+
 class Request
 
   attr_reader :title, :description, :price_per_night, :requester_id, :owner_id, :date

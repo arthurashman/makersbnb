@@ -64,6 +64,7 @@ class Makersbnb < Sinatra::Base
 
   get '/requests' do
     @requests_made = Request.made(requester_id: session[:id])
+    @requests_received = Request.received(owner_id: session[:id])
     erb :requests
   end
 
@@ -81,6 +82,10 @@ class Makersbnb < Sinatra::Base
       flash[:notice] = 'Please check your email or password.'
       redirect '/log_in'
     end
+  end
+
+  post '/requests_page' do
+    redirect '/requests'
   end
 
   post '/log_out' do
