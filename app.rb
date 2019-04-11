@@ -27,7 +27,8 @@ class Makersbnb < Sinatra::Base
 
   get '/spaces' do
     @all_spaces = Space.all
-    @user = User.find(email: session[:email])
+    @email = session[:email]
+    @user = User.find(email: @email)
     erb :spaces
   end
 
@@ -41,13 +42,13 @@ class Makersbnb < Sinatra::Base
   end
 
   get '/spaces/:id' do
+    @email = session[:email]
     @space = Space.find(id: params[:id])
     erb :dates
   end
 
   post '/request' do
-    @email = session[:email]
-    if @email == nil
+    if session[:email] == nil
       flash[:notice] = 'You must be signed in to request a space.'
       redirect "/spaces/#{params[:id]}"
     else

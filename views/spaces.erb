@@ -1,10 +1,16 @@
-<% if @user %>
+<% if @email != nil %>
   <h1>Welcome <%= @user.fullname %> </h1>
     <form action="/spaces/new">
       <button type="submit">List a Space</button>
     </form>
     <form action="/log_out" method="post">
-      <input type="submit" value="Log out" />
+      <button type="submit">Log out</button>
+    </form>
+<% end %>
+
+<% if @email == nil %>
+    <form action="/log_in" method="post">
+      <button type="submit">Log in</button>
     </form>
 <% end %>
 
