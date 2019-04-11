@@ -52,7 +52,7 @@ class Makersbnb < Sinatra::Base
       flash[:notice] = 'You must be signed in to request a space.'
       redirect "/spaces/#{params[:id]}"
     else
-      @booking = Booking.request(space_id: params[:space_id], date: params[:chosen_date])
+      @booking = Booking.request(requester_id: session[:id], space_id: params[:space_id], date: params[:chosen_date])
       if @booking.available?(space_id: params[:space_id], date: params[:chosen_date])
         redirect "/requests/#{params[:space_id]}"
       end
