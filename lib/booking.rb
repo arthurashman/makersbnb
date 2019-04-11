@@ -15,4 +15,10 @@ class Booking
     result = DatabaseConnection.query("INSERT INTO bookings (space_id, date, confirmation) VALUES('#{space_id}', '#{date}', '#{confirmation}') RETURNING id, space_id, date, confirmation;")
     Booking.new(id: result[0]['id'], space_id: result[0]['space_id'], date: result[0]['date'], confirmation: result[0]['confirmation'])
   end
+
+  def available?(space_id:, date:)
+    result = DatabaseConnection.query("SELECT * FROM bookings WHERE space_id = '#{space_id.to_i}' AND date = '#{date}';")
+    (result[0]['confirmation'] == "false") ? true : false
+      #insert into request table
+  end
 end
