@@ -60,9 +60,8 @@ class Makersbnb < Sinatra::Base
   end
 
   get '/requests/:id' do
-    p params
+    @all_bookings = Booking.all
     @space = Space.find(id: params[:id])
-    # @booking = Booking.find(space_id: params[:id])
     erb :requests
   end
 

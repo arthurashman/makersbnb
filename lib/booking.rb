@@ -27,4 +27,11 @@ class Booking
     return unless result.any?
     Booking.new(id: result[0]['id'], space_id: result[0]['space_id'], date: result[0]['date'], confirmation: result[0]['confirmation'])
   end
+
+  def self.all
+    result = DatabaseConnection.query("SELECT * FROM bookings;")
+    result.map do |booking|
+      Booking.new(id: result[0]['id'], space_id: result[0]['space_id'], date: result[0]['date'], confirmation: result[0]['confirmation'])
+    end
+  end
 end

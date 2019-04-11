@@ -1,8 +1,14 @@
-Request sent!
+<h3> Requests made: </h3>
 
-<%= @space.title %> <br>
-<%= @space.description %> <br>
-<%= @space.price_per_night %> <br>
-
-
-2019-05-20
+<div>
+  <% @all_bookings.each do |booking| %>
+  <br>
+  Your booking for <%= booking.date %>:
+  <br>
+  <br>
+  <%= @space.title %> <br>
+  <%= @space.description %> <br>
+  £<%= @space.price_per_night %> per night<br>
+  <% end %>
+  <br>
+</div>
