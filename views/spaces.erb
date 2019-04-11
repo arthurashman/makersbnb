@@ -1,32 +1,67 @@
-<% if @email != nil %>
-  <h1>Welcome <%= @user.fullname %> </h1>
-    <form action="/spaces/new">
-      <button type="submit">List a Space</button>
-    </form>
-    <form action="/log_out" method="post">
-      <button type="submit">Log out</button>
-    </form>
-<% end %>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="/stylesheet.css">
+    <title> Makersbnb </title>
+    <meta charset="utf-8">
+  </head>
 
-<% if @email == nil %>
-    <form action="/log_in" method="post">
-      <button type="submit">Log in</button>
-    </form>
-<% end %>
+  <body class="spaces">
 
-Book a Space
-<br>
-<br>
-<% @all_spaces.each do |space| %>
-<%= space.title %>
-<br>
-<%= space.description %>
-<br>
-£<%= space.price_per_night %>per night
-<form action="/spaces/<%= space.id %>">
-  <button type="submit">See more</button>
-</form>
-<br>
-<br>
-<% end %>
-<br>
+    <div id="content">
+      <p>
+        <a href="/">
+          <img border="0" src="makersbnb.png"" width="50" height="60">
+        </a>
+      </p>
+    </div>
+
+
+    <div id="nav_links">
+      <a href="/">Home</a>
+      |
+      <a href="/spaces">Browse spaces</a>
+      <% if @email == nil %>
+      |
+        <a href="/log_in">Log in</a>
+      <% else %>
+      |
+        <form action="/log_out" method="post" class="inline">
+          <button type="submit" class="link-button">Log out</button>
+        </form>
+      <% end %>
+    </div> 
+
+    <div class="spaces_box">
+      <% if @email != nil %>
+        <p1>Welcome <%= @user.fullname %> </p1>
+      <% end %>
+      <br><br>
+      <p2>Book a Space</p2>
+      <br>
+      <br>
+      <br>
+      <% @all_spaces.each do |space| %>
+      <%= space.title %>
+      <br>
+      <%= space.description %>
+      <br>
+      £<%= space.price_per_night %>per night <br><br>
+      <form action="/spaces/<%= space.id %>">
+        <button type="submit" id="seemore">See more</button>
+      </form>
+      ----
+      <br>
+      <br>
+      <% end %>
+      <br>
+      <% if @email != nil %>
+        <form action="/spaces/new">
+          <button type="submit" id="list" >List your own space</button>
+        </form>
+        
+      <% end %>
+
+    </div>
+  </body>
+</html>
+

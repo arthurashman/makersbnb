@@ -1,20 +1,36 @@
- <html>
-    <center>
-        <head>
-            <link rel="stylesheet" type="text/css" href="/stylesheet.css">
-            <title> Makers BnB </title>
-            <meta charset="utf-8">
-        </head>
- <body class="log">
-<div class="oxed">
-<h2><%= flash[:notice] %></h2>
-<h2> Log in to MakersBnB </h2>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="/stylesheet.css">
+    <title> Makersbnb </title>
+    <meta charset="utf-8">
+  </head>
 
-<form action='/log_in' method='post'>
-  <input type="email" name="email" placeholder="Email" /> <br>
-  <input type="password" name="password" placeholder="Password" /> <br>
-  <input type="submit" value="Log in" />
-</form>
-</div>
-</body>
+  <body class="log">
+
+    <div id="content">
+      <p>
+        <a href="/">
+          <img border="0" src="makersbnb.png"" width="50" height="60">
+        </a>
+      </p>
+    </div>
+
+
+    <div id="nav_links">
+      <a href="/">Home</a>
+      |
+      <a href="/spaces">Browse spaces</a>
+    </div> 
+
+    <div class="login_box">
+      <p2><%= flash[:notice] %></p2>
+      <p2> Log in to Makersbnb </p2>
+
+      <form action='/log_in' method='post'>
+        <input type="email" name="email" placeholder="Email" /> <br>
+        <input type="password" name="password" placeholder="Password" /><br>
+        <input type="submit" value="Log in" />
+      </form>
+    </div>
+  </body>
 </html>
