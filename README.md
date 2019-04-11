@@ -116,4 +116,4 @@ Please do the following to add on a column for requester_id on the bookings tabl
 
 ### Amending bookings table with FK
 
-1. Run the SQL script `\i db/migrations/07_add_space_FK_to_bookings;`
+1. Run the SQL script `\i db/migrations/07_add_space_FK_to_bookings.sql;`
