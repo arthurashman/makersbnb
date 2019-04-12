@@ -33,50 +33,47 @@
     <div class="request_made_box">
       <br>
       <br>
-      <div>
-        <p2>Requests made:</p2><br>
-        <% @requests_made.each do |booking| %>
-          <br>
-          Your booking for <%= booking.date %>:<br>
-          <%= booking.title %><br>
-          <%= booking.description %><br>
-          £<%= booking.price_per_night%> per night<br>
-          <br>
-          <% if booking.confirmation == 'true' %>
-            <p4>Your booking has been confirmed</p4>
-            <% else %>
-            <p3>Awaiting confirmation</p3><br>
-____
-          <% end %>
-          <br>
+      <p2>Requests made:</p2><br>
+      <% @requests_made.each do |booking| %>
+        <br>
+        Your booking for <%= booking.date %>:<br>
+        <%= booking.title %><br>
+        <%= booking.description %><br>
+        £<%= booking.price_per_night%> per night<br>
+        <br>
+        <% if booking.confirmation == 'true' %>
+          <p4>Your booking has been confirmed</p4>
+          <% else %>
+          <p3>Awaiting confirmation</p3><br>
+          ____
         <% end %>
         <br>
-        <br>
-      </div>
+      <% end %>
+      <br>
+      <br>
+    </div>
 
       
 
-      <div class= "request_recieved_box">
-        <p2> Requests received: </p2><br>
-        <% @requests_received.each do |booking| %>
-          <br>
-          Your booking for <%= booking.date %>:<br>
-          <%= booking.title %><br>
-          <%= booking.description %><br>
-          £<%= booking.price_per_night%> per night<br>
-
-          <form action="/confirm" method="post" class="inline">
-            <button type="submit" class="link-button">Confirm</button>
-            <input type="hidden" name="space_id" value=<%= booking.space_id %> />
-            <input type="hidden" name="requester_id" value=<%= booking.requester_id %> />
-            <input type="hidden" name="date" value=<%= booking.date %> />
-          </form>
-
-        <% end %>
+    <div class= "request_recieved_box">
+      <p2> Requests received: </p2><br>
+      <% @requests_received.each do |booking| %>
         <br>
-        <br>
-      </div>
+        Your booking for <%= booking.date %>:<br>
+        <%= booking.title %><br>
+        <%= booking.description %><br>
+        £<%= booking.price_per_night%> per night<br>
 
+        <form action="/confirm" method="post" class="inline">
+          <button type="submit" class="link-button">Confirm</button>
+          <input type="hidden" name="space_id" value=<%= booking.space_id %> />
+          <input type="hidden" name="requester_id" value=<%= booking.requester_id %> />
+          <input type="hidden" name="date" value=<%= booking.date %> />
+        </form>
 
-
-</body>
+      <% end %>
+      <br>
+      <br>
+    </div>
+  </body>
+</html>
