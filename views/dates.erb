@@ -7,28 +7,54 @@
 
 <body class="request">
 
+      <div id="content">
+      <p>
+        <a href="/">
+          <img border="0" src="../makersbnb.png"" width="50" height="60">
+        </a>
+      </p>
+    </div>
 
-<% if @email == nil %>
-  <form action="/log_in">
-    <button type="submit">Log in</button>
-  </form>
-<% end %>
+<div id="nav_links_5">
+      <a href="/">Home</a>
+      |
+      <a href="/spaces">Browse spaces</a>
+      |
+      <% if @email == nil %>
+        <a href="/log_in">Log in</a>
+      <% else %>
+        |
+        <form action="/requests_page" method="post" class="inline">
+          <button type="submit" class="link-button">My requests</button>
+        </form>
+        
+      |
+        <form action="/log_out" method="post" class="inline">
+          <button type="submit" class="link-button">Log out</button>
+        </form>
+      <% end %>
+    </div>
+
 
     <div class= "dates_box">
-Choose a date
+<p2>Choose a date</p2>
 <br>
 <br>
-<form action="/request" method="POST" >
+
+<% if @email == nil %>
   Date:<input type="date" name="chosen_date" placeholder="YYYY-MM-DD" min="<%=@space.date_from%>" max="<%=@space.date_to%>" />
-  <input type="hidden" name="space_id" value=<%= @space.id %> />
-  <input type="submit" value="Request"/>
-  <input type="hidden" name="id" value="<%= @space.id%>">
-</form>
+  <form action="/log_in">
+    <button type="submit" id="seemore" >Log in to book</button>
+  </form>
+  <% else %>
+    <form action="/request" method="POST" >
+      Date:<input type="date" name="chosen_date" placeholder="YYYY-MM-DD" min="<%=@space.date_from%>" max="<%=@space.date_to%>" />
+      <input type="hidden" name="space_id" value=<%= @space.id %> />
+      <input type="submit" value="Request"/>
+      <input type="hidden" name="id" value="<%= @space.id%>">
+    </form>
+ <% end %>
 
 
-<form action="/spaces">
-  <button type="submit">Go back to browse spaces</button>
-</form>
-<h2><%= flash[:notice] %></h2>
 </div>
 </body>
