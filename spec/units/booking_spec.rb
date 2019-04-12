@@ -60,4 +60,13 @@ describe Booking do
       expect(bookings.first.date).to eq '2019-05-20'
     end
   end
+
+  describe '.confirm' do
+    it 'updates the booking confirmation to true' do
+      booking = Booking.request(requester_id: @requester.id, space_id: @space.id, date:'2019-05-20', confirmation: "false")
+      Booking.confirm(requester_id: @requester.id, space_id: @space.id, date: booking.date)
+
+      expect(booking.available?(space_id: booking.space_id, date:'2019-05-20')).to be false
+    end
+  end
 end

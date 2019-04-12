@@ -20,7 +20,6 @@ class Booking
   def available?(space_id:, date:)
     result = DatabaseConnection.query("SELECT * FROM bookings WHERE space_id = '#{space_id.to_i}' AND date = '#{date}';")
     (result[0]['confirmation'] == "false") ? true : false
-      #insert into request table
   end
 
   def self.find(space_id:)
@@ -35,5 +34,10 @@ class Booking
       Booking.new(requester_id: result[0]['requester_id'], id: result[0]['id'], space_id: result[0]['space_id'], date: result[0]['date'], confirmation: result[0]['confirmation'])
     end
   end
-  
+
+  def self.confirm(space_id:, requester_id:, date:)
+    result = DatabaseConnection.query("UPDATE bookings SET confirmation = 'true' WHERE space_id = '#{space_id.to_i}' AND requester_id = '#{requester_id.to_i}' AND date = '#{date}' RETURNING requester_id, id, space_id, date, confirmation;")
+    Booking.new(requester_id: result[0]['requester_id'], id: result[0]['id'], space_id: result[0]['space_id'], date: result[0]['date'], confirmation: result[0]['confirmation'])
+  end
+
 end

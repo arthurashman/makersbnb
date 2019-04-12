@@ -40,7 +40,6 @@ class Makersbnb < Sinatra::Base
 
   post '/spaces' do
     Space.create(user_id: session[:id], title: params[:title], description: params[:description], price_per_night: params[:price_per_night], date_from: params[:date_from], date_to: params[:date_to])
-    p session[:id]
     redirect '/spaces'
   end
 
@@ -85,6 +84,11 @@ class Makersbnb < Sinatra::Base
   end
 
   post '/requests_page' do
+    redirect '/requests'
+  end
+
+  post '/confirm' do
+    @confirmation = Booking.confirm(space_id: params[:space_id], requester_id: params[:requester_id], date: params[:date])
     redirect '/requests'
   end
 
