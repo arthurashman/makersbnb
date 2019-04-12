@@ -29,7 +29,7 @@
           <button type="submit" class="link-button">Log out</button>
         </form>
       <% end %>
-    </div> 
+    </div>
 
     <div class="spaces_box">
       <% if @email != nil %>
@@ -58,10 +58,12 @@
         <form action="/spaces/new">
           <button type="submit" id="list" >List your own space</button>
         </form>
-        
+        <form action="/requests_page" method="post" class="inline">
+          <button type="submit" class="link-button">My requests</button>
+        </form>
+
       <% end %>
 
     </div>
   </body>
 </html>
-
