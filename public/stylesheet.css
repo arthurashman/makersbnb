@@ -19,6 +19,11 @@ body.spaces {background-image:url('portrait_skyline.png');
     background-color: #cccccc;
 }
 
+body.request {background-image:url('Forests.jpeg');
+   background-size: cover;
+    background-color: #cccccc;
+}
+
 input[type=text] {
     width: 60%;
     padding: 10px 10px;
@@ -133,6 +138,20 @@ input[type=text] {
  .right {
     text-align: right; 
  }
+ .dates_box {
+  text-align: center;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  position: absolute;
+  top: 100px;
+  left: 25px;
+  width: 420px;
+  height: 150px;
+  background-color:#ffffff;
+  display: block;
+  margin: 0 auto;
+  border-radius: 10px;
+}
 
 #content {
   position: relative;
