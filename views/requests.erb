@@ -31,7 +31,7 @@
   £<%= booking.price_per_night%> per night<br>
 
   <form action="/confirm" method="post" class="inline">
-    <button type="submit" class="link-button">Confirm</button>
+    <button type="submit" class="item" id="Confirm">Confirm</button>
     <input type="hidden" name="space_id" value=<%= booking.space_id %> />
     <input type="hidden" name="requester_id" value=<%= booking.requester_id %> />
     <input type="hidden" name="date" value=<%= booking.date %> />
@@ -45,4 +45,3 @@
 <form action="/log_out" method="post" class="inline">
   <button type="submit" class="link-button">Log out</button>
 </form>
-
