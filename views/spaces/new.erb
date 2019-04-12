@@ -11,38 +11,43 @@
       <div id="content">
       <p>
         <a href="/">
-          <img border="0" src="makersbnb.png" width="50" height="60">
+          <img border="0" src="../makersbnb.png" width="50" height="60">
         </a>
       </p>
     </div>
 
-    <div id="nav_links">
-        <a href="/log_in">Log in</a>
-        |
-        <a href="/spaces">Browse spaces</a>
+    <div id="nav_links_4">
+      <a href="/">Home</a>
+      |
+      <a href="/log_in">Log in</a>
+      |
+      <a href="/spaces">Browse spaces</a>
     </div> 
 
     <div class="list_box">
      <p2>Form to add space</p2> 
         <br>
         <br>
-      <form action="/spaces" method="post" >
-        Title:<input type="text" name="title"/>
-        <br>
-        <br>
-        Description:<input type="text" name="description"/>
-        <br>
-        <br>
-        Price per night: £<input type="text" name="price_per_night" />
-        <br>
-        <br>
-        Available from:<input type="date" name="date_from" placeholder="YYYY-MM-DD"/>
-        <br>
-        <br>
-        Available to:<input type="date" name="date_to" placeholder="YYYY-MM-DD"/>
-        <br>
-        <input type="submit" id="list" value="List"/>
-      </form>
+        <div class="right">
+          <form action="/spaces" method="post" >
+            Title:<input type="text" name="title"/>
+            <br>
+            <br>
+            Description:<input type="text" name="description"/>
+            <br>
+            <br>
+            Price per night: £<input type="text" name="price_per_night" />
+            <br>
+            <br>
+            Available from:<input type="date" name="date_from" placeholder="YYYY-MM-DD"/>
+            <br>
+            <br>
+            Available to:<input type="date" name="date_to" placeholder="YYYY-MM-DD"/>
+            <br>
+            <input type="submit" id="list" value="List"/>
+          </form>
+        </div>
+      
 
     </div>
 
