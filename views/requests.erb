@@ -8,6 +8,13 @@
   <%= booking.title %><br>
   <%= booking.description %><br>
   £<%= booking.price_per_night%> per night<br>
+  <br>
+  <% if booking.confirmation == 'true' %>
+    Your booking has been confirmed
+    <% else %>
+    Awaiting confirmation
+  <% end %>
+  <br>
 <% end %>
 <br>
 <br>
@@ -22,6 +29,14 @@
   <%= booking.title %><br>
   <%= booking.description %><br>
   £<%= booking.price_per_night%> per night<br>
+
+  <form action="/confirm" method="post" class="inline">
+    <button type="submit" class="link-button">Confirm</button>
+    <input type="hidden" name="space_id" value=<%= booking.space_id %> />
+    <input type="hidden" name="requester_id" value=<%= booking.requester_id %> />
+    <input type="hidden" name="date" value=<%= booking.date %> />
+  </form>
+
 <% end %>
 <br>
 <br>
