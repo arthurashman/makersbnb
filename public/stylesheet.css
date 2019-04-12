@@ -1,5 +1,6 @@
 p1{font-size:32px; font-weight: 500;}
-p2{font-size:26px}
+p2{font-size:26px;}
+p3{font-size:12px; color: red;}
 html, body, h1, h2, h3, h4, h5, h6, p1, p2 {
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -45,7 +46,7 @@ input[type=text] {
   input[type=submit] {
     width: 30%;
     padding: 10px 10px;
-    margin: 30px 0;
+    margin: 10px 0;
     box-sizing: border-box;
     border-radius: 10px;
     font-weight: 700;
@@ -143,10 +144,10 @@ input[type=text] {
   padding-top: 25px;
   padding-bottom: 25px;
   position: absolute;
-  top: 100px;
-  left: 25px;
+  top: 120px;
+  left: 85px;
   width: 420px;
-  height: 150px;
+  height: 120px;
   background-color:#ffffff;
   display: block;
   margin: 0 auto;
@@ -187,6 +188,18 @@ input[type=text] {
     top:0;
     right:0;
     width: 15%;
+}
+#nav_links_5 {
+    line-height: 12px;
+    width: 18px;
+    font-size: 12pt;
+    font-family: tahoma;
+    margin-top: 20px;
+    margin-right: 0px;
+    position:absolute;
+    top:0;
+    right:0;
+    width: 30%;
 }
 .inline {
     display: inline;

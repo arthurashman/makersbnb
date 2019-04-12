@@ -28,8 +28,7 @@ feature 'View the availability of a space' do
     visit('/spaces')
     click_button('See more')
     fill_in(:chosen_date, with: "2019-05-20")
-    click_button('Request')
-    expect(page).to have_content 'You must be signed in to request a space.'
+    expect(page).not_to have_content 'Request'
     expect(page).to have_content 'Log in'
   end
 
@@ -38,7 +37,7 @@ feature 'View the availability of a space' do
     Space.create(user_id: owner.id, title: "Beautiful Home", description: "Beautiful home in Yorkshire", price_per_night: 50, date_from: "2019-05-01", date_to: "2019-05-31")
     visit('/spaces')
     click_button('See more')
-    click_button('Go back to browse spaces')
+    click_link('Browse spaces')
     expect(page).to have_current_path("/spaces")
   end
 

@@ -23,14 +23,16 @@
     </div> 
 
     <div class="login_box">
-      <p2><%= flash[:notice] %></p2>
+      
       <p2> Log in to Makersbnb </p2>
 
       <form action='/log_in' method='post'>
         <input type="email" name="email" placeholder="Email" /> <br>
         <input type="password" name="password" placeholder="Password" /><br>
+        <p3><%= flash[:notice] %></p3><br>
         <input type="submit" value="Log in" />
       </form>
+      
     </div>
   </body>
 </html>
