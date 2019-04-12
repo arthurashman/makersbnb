@@ -57,6 +57,9 @@ class Makersbnb < Sinatra::Base
       @booking = Booking.request(requester_id: session[:id], space_id: params[:space_id], date: params[:chosen_date])
       if @booking.available?(space_id: params[:space_id], date: params[:chosen_date])
         redirect "/requests"
+      else
+        flash[:notice] = 'Sorry this date is unavailable'
+        redirect '/spaces'
       end
     end
   end
